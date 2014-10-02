@@ -52,6 +52,7 @@ public class EnvioEmail extends HttpServlet {
             throws ServletException, IOException {
         //        String rut1a=getServletConfig().getServletContext().getRealPath("/Reportes/REgistroUsuario.jasper");
         String to = destinatario;
+        //aqui esta mi cuenta para el correo
         String from = "juan.escom.isc@gmail.com";
         //String subject = "Notificacion de Registro";
         //String message1 = "Corrreo enviado despues de registrarse";
