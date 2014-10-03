@@ -42,7 +42,7 @@ public class CarreraAgregar extends HttpServlet {
         if (fechaN.isEmpty() | materia.isEmpty() | periodo.isEmpty()) {
             response.sendRedirect("login.html");
         }
-*/
+*/     // dto.setIdcarrera(0);
         dto.setDuracion(Integer.parseInt(duracion));
         dto.setNombre(nombre);
 

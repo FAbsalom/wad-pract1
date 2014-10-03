@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title> Inicio de Sesión </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./Css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./Css/Estilos.css" rel="stylesheet" media="screen">
+    <script src="./js/jquery-2.1.1.js" type="text/javascript"><!--mce:0--><!--mce:0--> </script>
+    <script src="js/jquery.validate.js" type="text/javascript"><!--mce:1--><!--mce:1--></script>    
+</head>
+<body>
+<div class="logo">  
+</div>
+    
+<form class="form-horizontal" id="formulario_registro1" action="AlumnoAgregar" method="post">     
+    <h2>Registro de Usuario</h2>
+
+    <div class="line" text-center></div>
+    <LABEL for="matricula" style="text-align:center">Puntuaje: </LABEL>            
+            <INPUT style="text-align:center" type="text" name="puntuaje" id="matricula">                    
+        <LABEL for="nombre" style="text-align:center">Matricula Alumno: </LABEL>            
+            <INPUT style="text-align:center" type="text" name="matriculaa" id="nombre">                    
+        <LABEL for="apellidoP" style="text-align:center" >MatriculaProfesor: </LABEL>
+             <INPUT  style="text-align:center"  type="text" name="matriculap" id="paterno"> 
+        <LABEL for="apellidoM" style="text-align:center">id Examen: </LABEL>
+                <INPUT  style="text-align:center" type="text" name="idexamen" id="materno">  
+
+    <button name="Registar" type="submit" class="btn btn-lg btn-primary btn-sign-in" >Guardar Datos
+    </button>    
+</form>
+    <a href="login.html">	
+<input class="btn btn-lg btn-primary btn-sign-in" type="submit" value="Regresar"></a>
+</body>
+</html>

@@ -10,7 +10,7 @@ import Utilerias.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -58,7 +58,7 @@ public class AlumnoAgregar extends HttpServlet {
         dto.setNombre(nombre);
         dto.setPaterno(paterno);
         dto.setMaterno(materno);
-        dto.setFechan(new Date(fechaN));
+        dto.setFechan(Date.valueOf(fechaN));
         dto.setCalle(calle);
         dto.setColonia(colonia);
         dto.setNum(Integer.parseInt(num));

@@ -6,6 +6,7 @@ package CalificacionesCRUD;
 
 import DAO.CalificacionesDAO;
 import DTO.Calificaciones;
+import Utilerias.CargaSelect;
 import Utilerias.Conexion;
 import controller.CRUD.CalificacionesCRUD;
 import java.io.IOException;
@@ -56,48 +57,48 @@ String key=request.getParameter("idItem");
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CalificacionesUpdate</title>");
-            out.println("</head>");
-            out.println("<body style=\"background-color: red\">\n"
-                    + "        <div align=\"Center\"><h3>Registro</h3></div>\n"
-                    + "        <div align=\"Center\">\n"
-                    + "        	<form action=\"CalificacionesCRUD\" method=\"POST\">\n<input type=\"hidden\" value=" + dto2.getIdcalificaciones() + " name=\"idCalificaciones\" >"
+            
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "	<head>\n"
+                    + "	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n"
+                    + "    <title> Inicio de Sesión </title>\n"
+                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    <!-- Bootstrap -->\n"
+                    + "    <link href=\"./Css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <link href=\"./Css/Estilos.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <script src=\"./js/jquery-2.1.1.js\" type=\"text/javascript\"><!--mce:0--><!--mce:0--> </script>\n"
+                    + "    <script src=\"js/jquery.validate.js\" type=\"text/javascript\"><!--mce:1--><!--mce:1--></script>    \n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"logo\">  \n"
+                    + "</div>\n"
+                    + "    \n"
+                    + "<form class=\"form-horizontal\" id=\"formulario_registro1\" action=\"CalificacionesModificar\" method=\"post\">     \n"
+                    +"<input type=\"hidden\" value=" + dto2.getIdcalificaciones() + " name=\"idItem\" >"
                     + "          <input type=\"hidden\" value=\"update\" name=\"accion\" >"
-                    + "        	<table>\n"
-                    + "        		<thead>\n"
-                    + "        			<tr>\n"
-                    + "        			<th colspan=\"2\" align=\"Center\">Introduzca sus datos.</th>\n"
-                    + "        			</tr>\n"
-                    + "        		</thead>\n"
-                    + "        		<tbody>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>puntuaje: </td>\n"
-                    + "        				<td><input type=\"text\" name=\"puntuaje\" value=" + dto2.getPuntaje() + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "                                    <td><label>matriculaa</label></td>\n"
-                    + "        				<td> <input type=\"text\" name= \"matriculaa\" value=" + dto2.getMatriculaa() + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>matriculap:</td>\n"
-                    + "        				<td><input type=\"text\" name=\"matriculap\" value=" + dto2.getMatriculap() + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>idExamen:</td>\n"
-                    + "        				<td><input type=\"text\" name=\"idexamen\" value=" + dto2.getIdexamen() + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td colspan=\"2\" align=\"Center\"><input type=\"submit\" value=\"Update\"></td>\n"
-                    + "        			</tr>\n"
-                    + "        		</tbody>\n"
-                    + "        	</table>\n"
-                    + "        	</form>\n"
-                    + "        </div>\n"
-                    + "    </body>\n"
-                    + "</html>");
+                    + "    <h2>Registro de Usuario</h2>\n"
+                    + "\n"
+                    + "    <div class=\"line\" text-center></div>\n"
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Id: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" disabled name=\"puntuaje\" id=\"matricula\" value=\""+dto2.getIdcalificaciones()+"\">  "
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Puntuaje: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"puntuaje\" id=\"matricula\" value=\""+dto2.getPuntaje()+"\">                    \n"
+                    + "        <LABEL for=\"nombre\" style=\"text-align:center\">Matricula Alumno: </LABEL>            \n"
+                    +CargaSelect.conAlumno((int)dto2.getMatriculaa())//+ "            <INPUT style=\"text-align:center\" type=\"text\" name=\"matriculaa\" id=\"nombre\">                    \n"
+                    + "        <LABEL for=\"apellidoP\" style=\"text-align:center\" >MatriculaProfesor: </LABEL>\n"
+                    +CargaSelect.conProfesor((int) dto2.getMatriculap())//+ "             <INPUT  style=\"text-align:center\"  type=\"text\" name=\"matriculap\" id=\"paterno\"> \n"
+                    + "        <LABEL for=\"apellidoM\" style=\"text-align:center\">id Examen: </LABEL>\n"
+                    +CargaSelect.conExamen(dto2.getIdexamen())//+ "                <INPUT  style=\"text-align:center\" type=\"text\" name=\"idexamen\" id=\"materno\">  \n"
+                    + "\n"
+                    + "    <button name=\"Registar\" type=\"submit\" class=\"btn btn-lg btn-primary btn-sign-in\" >Guardar Datos\n"
+                    + "    </button>    \n"
+                    + "</form>\n"
+                    + "    <a href=\"login.html\">	\n"
+                    + "<input class=\"btn btn-lg btn-primary btn-sign-in\" type=\"submit\" value=\"Regresar\"></a>\n"
+                    + "</body>\n"
+                    + "</html>\n"
+                    + "");
         } finally {
             out.close();
         }

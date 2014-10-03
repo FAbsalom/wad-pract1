@@ -4,6 +4,7 @@
  */
 package CalificacionesCRUD;
 
+import Utilerias.CargaSelect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,9 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 public class CalificacionesAgregarVista extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -34,48 +34,45 @@ public class CalificacionesAgregarVista extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CalificacionesUpdate</title>");
-            out.println("</head>");
-            out.println("<body style=\"background-color: red\">\n"
-                    + "        <div align=\"Center\"><h3>Registro</h3></div>\n"
-                    + "        <div align=\"Center\">\n"
-                    + "        	<form action=\"CalificacionesCRUD\" method=\"POST\">\n<input type=\"hidden\" value=\"\"" + " name=\"idCalificaciones\" >"
-                    + "          <input type=\"hidden\" value=\"create\" name=\"accion\" >"
-                    + "        	<table>\n"
-                    + "        		<thead>\n"
-                    + "        			<tr>\n"
-                    + "        			<th colspan=\"2\" align=\"Center\">Introduzca sus datos.</th>\n"
-                    + "        			</tr>\n"
-                    + "        		</thead>\n"
-                    + "        		<tbody>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>Puntuaje: </td>\n"
-                    + "        				<td><input type=\"text\" name=\"puntuaje\" value=\"\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "                                    <td><label>matricula al:</label></td>\n"
-                    + "        				<td> <input type=\"text\" name= \"matriculaa\" value=\"\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>matricula pr:</td>\n"
-                    + "        				<td><input type=\"text\" name=\"matriculap\" value=\"\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>idExamen:</td>\n"
-                    + "        				<td><input type=\"text\" name=\"idexamen\" value=\"\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td colspan=\"2\" align=\"Center\"><input type=\"submit\" value=\"Add\"></td>\n"
-                    + "        			</tr>\n"
-                    + "        		</tbody>\n"
-                    + "        	</table>\n"
-                    + "        	</form>\n"
-                    + "        </div>\n"
-                    + "    </body>\n"
-                    + "</html>");
+            
+
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "	<head>\n"
+                    + "	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n"
+                    + "    <title> Inicio de Sesión </title>\n"
+                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    <!-- Bootstrap -->\n"
+                    + "    <link href=\"./Css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <link href=\"./Css/Estilos.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <script src=\"./js/jquery-2.1.1.js\" type=\"text/javascript\"><!--mce:0--><!--mce:0--> </script>\n"
+                    + "    <script src=\"js/jquery.validate.js\" type=\"text/javascript\"><!--mce:1--><!--mce:1--></script>    \n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"logo\">  \n"
+                    + "</div>\n"
+                    + "    \n"
+                    + "<form class=\"form-horizontal\" id=\"formulario_registro1\" action=\"CalificacionesAgregar\" method=\"post\">     \n"
+                    + "    <h2>Registro de Usuario</h2>\n"
+                    + "\n"
+                    + "    <div class=\"line\" text-center></div>\n"
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Puntuaje: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"puntuaje\" id=\"matricula\">                    \n"
+                    + "        <LABEL for=\"nombre\" style=\"text-align:center\">Matricula Alumno: </LABEL>            \n"
+                    +CargaSelect.conAlumno()//+ "            <INPUT style=\"text-align:center\" type=\"text\" name=\"matriculaa\" id=\"nombre\">                    \n"
+                    + "        <LABEL for=\"apellidoP\" style=\"text-align:center\" >MatriculaProfesor: </LABEL>\n"
+                    +CargaSelect.conProfesor()//+ "             <INPUT  style=\"text-align:center\"  type=\"text\" name=\"matriculap\" id=\"paterno\"> \n"
+                    + "        <LABEL for=\"apellidoM\" style=\"text-align:center\">id Examen: </LABEL>\n"
+                    +CargaSelect.conExamen()//+ "                <INPUT  style=\"text-align:center\" type=\"text\" name=\"idexamen\" id=\"materno\">  \n"
+                    + "\n"
+                    + "    <button name=\"Registar\" type=\"submit\" class=\"btn btn-lg btn-primary btn-sign-in\" >Guardar Datos\n"
+                    + "    </button>    \n"
+                    + "</form>\n"
+                    + "    <a href=\"login.html\">	\n"
+                    + "<input class=\"btn btn-lg btn-primary btn-sign-in\" type=\"submit\" value=\"Regresar\"></a>\n"
+                    + "</body>\n"
+                    + "</html>\n"
+                    + "");
         } finally {
             out.close();
         }
@@ -83,8 +80,7 @@ public class CalificacionesAgregarVista extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -98,8 +94,7 @@ public class CalificacionesAgregarVista extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
