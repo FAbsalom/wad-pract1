@@ -38,18 +38,20 @@ public class CalificacionesModificar extends HttpServlet {
         Calificaciones dto = new Calificaciones();
 
         String puntuaje = request.getParameter("puntuaje").trim();
-        String matriculaa = request.getParameter("matriculaa").trim();
-        String matriculap = request.getParameter("matriculap").trim();
-        String idexamen = request.getParameter("idexamen").trim();
+        String matriculaa = request.getParameter("comboAlumno").trim();
+        String matriculap = request.getParameter("comboProfesor").trim();
+        String idexamen = request.getParameter("comboExamen").trim();
         /*
          if (fechaN.isEmpty() | materia.isEmpty() | periodo.isEmpty()) {
          response.sendRedirect("login.html");
          }
          */
+        String idCalf=request.getParameter("idItem").trim();
         dto.setPuntaje(Integer.parseInt(puntuaje));
         dto.setIdexamen(Integer.parseInt(idexamen));
         dto.setMatriculaa(Integer.parseInt(matriculaa));
         dto.setMatriculap(Integer.parseInt(matriculap));
+        dto.setIdcalificaciones(Integer.parseInt(idCalf));
 
 
         CalificacionesDAO edao = new CalificacionesDAO();
@@ -64,7 +66,7 @@ public class CalificacionesModificar extends HttpServlet {
             //System.out.println(ex);
         }
         //System.out.println(user.toString());
-        response.sendRedirect("CalificacionesCRUD");
+        response.sendRedirect("CalificacionesMostrar");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

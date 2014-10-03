@@ -19,9 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 public class AlumnoAgregarVista extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -34,81 +33,69 @@ public class AlumnoAgregarVista extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>AlumnoUpdate</title>");
-            out.println("</head>");
-            out.println("<body style=\"background-color: red\">\n"
-                    + "        <div align=\"Center\"><h3>Registro</h3></div>\n"
-                    + "        <div align=\"Center\">\n"
-                    + "        	<form action=\"AlumnoAgregar\" method=\"POST\">\n<input type=\"hidden\" value=\"\"" + " name=\"idAlumno\" >"
-                    + "          <input type=\"hidden\" value=\"create\" name=\"accion\" >"
-                    + "        	<table>\n"
-                    + "        		<thead>\n"
-                    + "        			<tr>\n"
-                    + "        			<th  align=\"Center\">Introduzca sus datos.</th>\n"
-                    + "        			</tr>\n"
-                    + "        		</thead>\n"
-                    + "        		<tbody>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"matricula\" value=\"\" placeholder=\"Matricula\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"nombre\" value=\"\" placeholder=\"Nombre\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"paterno\" value=\"\" placeholder=\"Paterno\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"materno\" value=\"\" placeholder=\"Materno\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"fecha\" value=\"\" placeholder=\"Fecha\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"calle\" value=\"\" placeholder=\"Calle\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"colonia\" value=\"\" placeholder=\"Colonia\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"numero\" value=\"\" placeholder=\"Numero\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"cp\" value=\"\" placeholder=\"C.P.\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"sexo\" value=\"\" placeholder=\"Sexo\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"email\" value=\"\" placeholder=\"E-mail\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"hidden\" name= \"clave\" value=\"-\" placeholder=\"clave\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    //+ "        				<td><input type=\"text\" name=\"idcarrera\" value=\"\" placeholder=\"Carrera\"" + "></td>\n"
-                    + CargaSelect.conCarrera()
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td align=\"Center\"><input type=\"submit\" value=\"Guardar\"></td>\n"
-                    + "        			</tr>\n"
-                    + "        		</tbody>\n"
-                    + "        	</table>\n"
-                    + "        	</form>\n"
-                    + "        </div>\n"
-                    + "    </body>\n"
-                    + "</html>");
-        }finally {
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "	<head>\n"
+                    + "	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n"
+                    + "    <title> Inicio de Sesión </title>\n"
+                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    <!-- Bootstrap -->\n"
+                    + "    <link href=\"./Css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <link href=\"./Css/Estilos.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <script src=\"./js/jquery-2.1.1.js\" type=\"text/javascript\"><!--mce:0--><!--mce:0--> </script>\n"
+                    + "    <script src=\"js/jquery.validate.js\" type=\"text/javascript\"><!--mce:1--><!--mce:1--></script>    \n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"logo\">  \n"
+                    + "</div>\n"
+                    + "    \n"
+                    + "<form class=\"form-horizontal\" id=\"formulario_registro1\" action=\"AlumnoAgregar\" method=\"post\">     \n"
+                    + "    <h2>Registro de Usuario</h2>\n"
+                    + "\n"
+                    + "    <div class=\"line\" text-center></div>\n"
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Matricula: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"matricula\" id=\"matricula\">                    \n"
+                    + "        <LABEL for=\"nombre\" style=\"text-align:center\">Nombre: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"nombre\" id=\"nombre\">                    \n"
+                    + "        <LABEL for=\"apellidoP\" style=\"text-align:center\" >Apellido Paterno: </LABEL>\n"
+                    + "             <INPUT  style=\"text-align:center\"  type=\"text\" name=\"paterno\" id=\"paterno\"> \n"
+                    + "        <LABEL for=\"apellidoM\" style=\"text-align:center\">Apellido Materno: </LABEL>\n"
+                    + "                <INPUT  style=\"text-align:center\" type=\"text\" name=\"materno\" id=\"materno\">  \n"
+                    + "       <LABEL for=\"fechaN\" style=\"text-align:center\" >Fecha de Nacimiento </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"date\" name=\"fecha\" id=\"fechaN\"> \n"
+                    + "        <LABEL for=\"calle\" style=\"text-align:center\" >Callle </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"calle\" id=\"calle\"> \n"
+                    + "        <LABEL for=\"colonia\" style=\"text-align:center\" >Colonia </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"colonia\" id=\"colonia\"> \n"
+                    + "       <LABEL for=\"Numero\" style=\"text-align:center\" >Número </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"numero\" id=\"Numero\"> \n"
+                    + "        <LABEL for=\"Cp\" style=\"text-align:center\" >Codigo Postal </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"cp\" id=\"CP\"> \n"
+                    + "        <LABEL for=\"sexo\" style=\"text-align:center\" >Sexo </LABEL>\n"
+                    + "               <input style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"M\"> Masculino\n"
+                    + "               <input  style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"F\"> Femenino\n"
+                    + "               <br>\n"
+                    + "        <LABEL for=\"email\" style=\"text-align:center\" >E-mail: </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"email\" id=\"email\">\n"
+                    +CargaSelect.conCarrera()
+                    + "\n"
+                    + "    <button name=\"Registar\" type=\"submit\" class=\"btn btn-lg btn-primary btn-sign-in\" >Guardar Datos\n"
+                    + "    </button>    \n"
+                    + "</form>\n"
+                    + "    <a href=\"login.html\">	\n"
+                    + "<input class=\"btn btn-lg btn-primary btn-sign-in\" type=\"submit\" value=\"Regresar\"></a>\n"
+                    + "</body>\n"
+                    + "</html>\n"
+                    + "");
+            
+        } finally {
             out.close();
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -122,8 +109,7 @@ public class AlumnoAgregarVista extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

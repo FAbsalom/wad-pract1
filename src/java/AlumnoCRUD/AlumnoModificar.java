@@ -9,7 +9,7 @@ import DTO.Alumno;
 import Utilerias.Conexion;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -49,10 +49,10 @@ public class AlumnoModificar extends HttpServlet {
         cp = request.getParameter("cp");
         sexo = request.getParameter("sexo");
         email = request.getParameter("email");
-        idcarrera = request.getParameter("idcarrera");
-        Date date=null;
+        idcarrera = request.getParameter("combo");
+        
             
-         date=new Date(fechaN);
+         
         /*
          if ((fecha == null) | materia.isEmpty() | periodo.isEmpty()) {
          response.sendRedirect("login.html");
@@ -62,7 +62,7 @@ public class AlumnoModificar extends HttpServlet {
         dto.setNombre(nombre);
         dto.setPaterno(paterno);
         dto.setMaterno(materno);
-        dto.setFechan(date);
+        dto.setFechan(Date.valueOf(fechaN));
         dto.setCalle(calle);
         dto.setColonia(colonia);
         dto.setNum(Integer.parseInt(num));

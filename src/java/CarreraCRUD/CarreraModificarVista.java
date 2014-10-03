@@ -25,19 +25,19 @@ import javax.servlet.http.HttpServletResponse;
 public class CarreraModificarVista extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    Conexion conn=new Conexion();
+    Conexion conn = new Conexion();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-String key =request.getParameter("idItem");
+        String key = request.getParameter("idItem");
         Carrera dto = new Carrera(), dto2 = null;
         dto.setIdcarrera(Integer.parseInt(key));
 
@@ -58,42 +58,39 @@ String key =request.getParameter("idItem");
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CarreraUpdate</title>");
-            out.println("</head>");
-            out.println("<body style=\"background-color: red\">\n" 
-                    + "        <div align=\"Center\"><h3>Registro</h3></div>\n"
-                    + "        <div align=\"Center\">\n"
-                    + "        	<form action=\"CarreraModificar\" method=\"POST\">\n<input type=\"hidden\" value=" + dto2.getIdcarrera() + " name=\"idCarrera\" >"
-                    + "          <input type=\"hidden\" value=\"update\" name=\"accion\" >"
-                    + "        	<table>\n"
-                    + "        		<thead>\n"
-                    + "        			<tr>\n"
-                    + "        			<th colspan=\"2\" align=\"Center\">Introduzca sus datos.</th>\n"
-                    + "        			</tr>\n"
-                    + "        		</thead>\n"
-                    + "        		<tbody>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>id: </td>\n"
-                    + "        				<td><input disable type=\"text\" name=\"id\" value=" + dto2.getIdcarrera() + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "                                    <td><label>nombre</label></td>\n"
-                    + "        				<td> <input type=\"text\" name= \"nombre\" value=" + dto2.getNombre()+ "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td>duracion:</td>\n"
-                    + "        				<td><input type=\"text\" name=\"duracion\" value=" + dto2.getDuracion()+ "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td colspan=\"2\" align=\"Center\"><input type=\"submit\" value=\"Update\"></td>\n"
-                    + "        			</tr>\n"
-                    + "        		</tbody>\n"
-                    + "        	</table>\n"
-                    + "        	</form>\n"
-                    + "        </div>\n"
-                    + "    </body>\n"
+            out.println("<html>\n"
+                    + "	<head>\n"
+                    + "	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n"
+                    + "    <title> Registro Carrera</title>\n"
+                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    <!-- Bootstrap -->\n"
+                    + "    <link href=\"./Css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <link href=\"./Css/Estilos.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <script src=\"./js/jquery-2.1.1.js\" type=\"text/javascript\"><!--mce:0--><!--mce:0--> </script>\n"
+                    + "    <script src=\"js/jquery.validate.js\" type=\"text/javascript\"><!--mce:1--><!--mce:1--></script>    \n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"logo\">  \n"
+                    + "</div>\n"
+                    + "    \n"
+                    + "<form class=\"form-horizontal\" id=\"formulario_registro1\" action=\"CarreraModificar\" method=\"post\">     \n"
+                    + "    <input type=\"hidden\" value=\"" + dto2.getIdcarrera() + "\"   name=\"idItem\" >\n"
+                    + "                           <input type=\"hidden\" value=\"update\" name=\"accion\" >\n"
+                    + "    <h2>Registro de Carrera</h2>\n"
+                    + "\n"
+                    + "    <div class=\"line\" text-center></div>\n"
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">ID: </LABEL> \n"
+                    + "            <INPUT style=\"text-align:center\" disable type=\"text\" name=\"id\" value=\""+ dto2.getIdcarrera() + "\"id=\"id\"> "
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Nombre: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"nombre\" value=" + dto2.getNombre()+ " id=\"matricula\">                    \n"
+                    + "        <LABEL for=\"nombre\" style=\"text-align:center\">Duración: </LABEL>  \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"duracion\" id=\"matricula\" value=" + dto2.getDuracion()+ ">                    \n"
+                    + "    <button name=\"Registar\" type=\"submit\" class=\"btn btn-lg btn-primary btn-sign-in\" >Guardar Datos\n"
+                    + "    </button>    \n"
+                    + "</form>\n"
+                    + "    <a href=\"login.html\">	\n"
+                    + "<input class=\"btn btn-lg btn-primary btn-sign-in\" type=\"submit\" value=\"Regresar\"></a>\n"
+                    + "</body>\n"
                     + "</html>");
         } finally {
             out.close();
@@ -102,8 +99,7 @@ String key =request.getParameter("idItem");
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -117,8 +113,7 @@ String key =request.getParameter("idItem");
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

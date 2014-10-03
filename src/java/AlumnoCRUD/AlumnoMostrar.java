@@ -119,7 +119,7 @@ public class AlumnoMostrar extends HttpServlet {
                     +"</div>"
                     + "<br>"
                     + "<p align=\"center\">"
-                    + "<a   href=\"CalificacionesAgregarVista\">" + "<img src=\"./Imagenes/agregar.png\" class=\"chico\"> " + "</a>"
+                    + "<a   href=\"AlumnoAgregarVista\">" + "<img src=\"./Imagenes/agregar.png\" class=\"chico\"> " + "</a>"
                     + "</body>"
                     + "</p>"
                     + "</html>");

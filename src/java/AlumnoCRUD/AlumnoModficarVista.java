@@ -6,6 +6,7 @@ package AlumnoCRUD;
 
 import DAO.AlumnoDAO;
 import DTO.Alumno;
+import Utilerias.CargaSelect;
 import Utilerias.Conexion;
 import controller.CRUD.AlumnoCRUD;
 import java.io.IOException;
@@ -49,73 +50,70 @@ public class AlumnoModficarVista extends HttpServlet {
         try {
      
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>AlumnoUpdate</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/stylesheet.css\"/>");
-            out.println("<script type=\"text/javascript\" src=\"js/jquery-1.11.1.js\"></script>");
-            out.println("<script type=\"text/javascript\" src=\"js/anim.js\"></script>");
-            out.println("</head>");
-            out.println("<body style=\"background-color: red\">\n"
-                    + "        <div align=\"Center\"><h3>Registro</h3></div>\n"
-                    + "        <div align=\"Center\">\n"
-                    + "        	<form action=\"AlumnoModificar\" method=\"POST\">\n<input type=\"hidden\" value=" + dto2.getMatriculaa() + " name=\"idAlumno\" >"
-                    + "          <input type=\"hidden\" value=\"update\" name=\"accion\" >" + "        	<table>\n"
-                    + "        		<thead>\n"
-                    + "        			<tr>\n"
-                    + "        			<th  align=\"Center\">Introduzca sus datos.</th>\n"
-                    + "        			</tr>\n"
-                    + "        		</thead>\n"
-                    + "        		<tbody>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input disable type=\"text\" name=\"matricula\" value=\"" + dto2.getMatriculaa() + "\" placeholder=\"Matricula\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"nombre\" value=\"" + dto2.getNombre() + "\" placeholder=\"Nombre\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"paterno\" value=\"" + dto2.getPaterno() + "\" placeholder=\"Paterno\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"materno\" value=\"" + dto2.getMaterno() + "\" placeholder=\"Materno\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"fecha\" value=\"" + dto2.getFechan().toString() + "\" placeholder=\"Fecha\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"calle\" value=\"" + dto2.getCalle() + "\" placeholder=\"Calle\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"colonia\" value=\"" + dto2.getColonia() + "\" placeholder=\"Colonia\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"numero\" value=\"" + dto2.getNum() + "\" placeholder=\"Numero\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"cp\" value=\"" + dto2.getCp() + "\" placeholder=\"C.P.\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"text\" name= \"sexo\" value=\"" + dto.getSexo() + "\" placeholder=\"Sexo\" " + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"email\" value=\"" + dto2.getEmail() + "\" placeholder=\"E-mail\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td> <input type=\"hidden\" name= \"clave\" value=\"-\" placeholder=\"clave\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td><input type=\"text\" name=\"idcarrera\" value=\"" + dto2.getIdcarrera() + "\" placeholder=\"Carrera\"" + "></td>\n"
-                    + "        			</tr>\n"
-                    + "        			<tr>\n"
-                    + "        				<td align=\"Center\"><input type=\"submit\" value=\"Actualizar\"></td>\n"
-                    + "        			</tr>\n"
-                    + "        		</tbody>\n"
-                    + "        	</table>\n"
-                    + "        	</form>\n"
-                    + "        </div>\n"
-                    + "    </body>\n"
-                    + "</html>");
+            
+            out.println("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "	<head>\n"
+                    + "	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n"
+                    + "    <title> Inicio de Sesión </title>\n"
+                    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    <!-- Bootstrap -->\n"
+                    + "    <link href=\"./Css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <link href=\"./Css/Estilos.css\" rel=\"stylesheet\" media=\"screen\">\n"
+                    + "    <script src=\"./js/jquery-2.1.1.js\" type=\"text/javascript\"><!--mce:0--><!--mce:0--> </script>\n"
+                    + "    <script src=\"js/jquery.validate.js\" type=\"text/javascript\"><!--mce:1--><!--mce:1--></script>    \n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<div class=\"logo\">  \n"
+                    + "</div>\n"
+                    + "    \n"
+                    + "<form class=\"form-horizontal\" id=\"formulario_registro1\" action=\"AlumnoModificar\" method=\"post\">     \n"+
+                    "<input type=\"hidden\" value=" + dto2.getMatriculaa() + " name=\"idAlumno\" >"
+                    + "          <input type=\"hidden\" value=\"update\" name=\"accion\" >"
+                    + "    <h2>Registro de Usuario</h2>\n"
+                    + "\n"
+                    + "    <div class=\"line\" text-center></div>\n"
+                    + "    <LABEL for=\"matricula\" style=\"text-align:center\">Matricula: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"matricula\" id=\"matricula\" value=\""+dto2.getMatriculaa()+"\" disabled>                    \n"
+                    + "        <LABEL for=\"nombre\" style=\"text-align:center\">Nombre: </LABEL>            \n"
+                    + "            <INPUT style=\"text-align:center\" type=\"text\" name=\"nombre\" id=\"nombre\" value=\"" + dto2.getNombre() + "\">                    \n"
+                    + "        <LABEL for=\"apellidoP\" style=\"text-align:center\" >Apellido Paterno: </LABEL>\n"
+                    + "             <INPUT  style=\"text-align:center\"  type=\"text\" name=\"paterno\" id=\"paterno\" value=\"" + dto2.getPaterno() + "\"> \n"
+                    + "        <LABEL for=\"apellidoM\" style=\"text-align:center\">Apellido Materno: </LABEL>\n"
+                    + "                <INPUT  style=\"text-align:center\" type=\"text\" name=\"materno\" id=\"materno\" value=\"" + dto2.getMaterno() + "\">  \n"
+                    + "       <LABEL for=\"fechaN\" style=\"text-align:center\" >Fecha de Nacimiento </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"date\" name=\"fecha\" id=\"fechaN\" value=\"" + dto2.getFechan()+ "\" > \n"
+                    + "        <LABEL for=\"calle\" style=\"text-align:center\" >Callle </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"calle\" id=\"calle\" value=\"" + dto2.getCalle() + "\"> \n"
+                    + "        <LABEL for=\"colonia\" style=\"text-align:center\" >Colonia </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"colonia\" id=\"colonia\" value=\"" + dto2.getColonia() + "\"> \n"
+                    + "       <LABEL for=\"Numero\" style=\"text-align:center\" >Número </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"numero\" id=\"Numero\" value=\"" + dto2.getNum() + "\"> \n"
+                    + "        <LABEL for=\"Cp\" style=\"text-align:center\" >Codigo Postal </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"cp\" id=\"CP\" value=\"" + dto2.getCp() + "\"> \n"
+                    + "        <LABEL for=\"sexo\" style=\"text-align:center\" >Sexo </LABEL>\n");
+                    if(dto2.getSexo().equalsIgnoreCase("M")){
+                    out.print("               <input style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"M\" checked> Masculino\n"
+                    + "               <input  style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"F\"> Femenino\n");
+                        
+                    }else{
+                    out.print("               <input style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"M\"> Masculino\n"
+                    + "               <input  style=\"text-align:center\" type=\"radio\" name=\"sexo\" value=\"F\" checked> Femenino\n");
+                        
+                    }
+                    out.println( "               <br>\n"
+                    + "        <LABEL for=\"email\" style=\"text-align:center\" >E-mail: </LABEL>\n"
+                    + "               <INPUT  style=\"text-align:center\" type=\"text\" name=\"email\" id=\"email\" value=\"" + dto2.getEmail()+ "\">\n"
+                    +CargaSelect.conCarrera(dto2.getIdcarrera())
+                    + "\n"
+                    + "    <button name=\"Registar\" type=\"submit\" class=\"btn btn-lg btn-primary btn-sign-in\" >Guardar Datos\n"
+                    + "    </button>    \n"
+                    + "</form>\n"
+                    + "    <a href=\"login.html\">	\n"
+                    + "<input class=\"btn btn-lg btn-primary btn-sign-in\" type=\"submit\" value=\"Regresar\"></a>\n"
+                    + "</body>\n"
+                    + "</html>\n"
+                    + "");
         } finally {
             out.close();
         }

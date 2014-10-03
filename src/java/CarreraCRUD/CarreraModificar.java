@@ -37,14 +37,14 @@ public class CarreraModificar extends HttpServlet {
             throws ServletException, IOException{
         Carrera dto = new Carrera();
 
-
+        String idcarrera=request.getParameter("idItem");
         String duracion = request.getParameter("duracion").trim();
         String nombre = request.getParameter("nombre").trim();
 /*
         if (fechaN.isEmpty() | materia.isEmpty() | periodo.isEmpty()) {
             response.sendRedirect("login.html");
         }
-*/
+*/      dto.setIdcarrera(Integer.parseInt(idcarrera));
         dto.setDuracion(Integer.parseInt(duracion));
         dto.setNombre(nombre);
 

@@ -49,7 +49,7 @@ public class CalificacionesEliminar extends HttpServlet {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CalificacionesCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("CalificacionesCRUD");
+        response.sendRedirect("CalificacionesMostrar");
 
     }
 

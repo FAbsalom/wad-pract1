@@ -37,10 +37,11 @@ public class CalificacionesAgregar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Calificaciones dto = new Calificaciones();
+        
         String puntuaje = request.getParameter("puntuaje").trim();
-        String matriculaa = request.getParameter("matriculaa").trim();
-        String matriculap = request.getParameter("matriculap").trim();
-        String idexamen = request.getParameter("idexamen").trim();
+        String matriculaa = request.getParameter("comboAlumno").trim();
+        String matriculap = request.getParameter("comboProfesor").trim();
+        String idexamen = request.getParameter("comboExamen").trim();
         /*
          if (fechaN.isEmpty() | materia.isEmpty() | periodo.isEmpty()) {
          response.sendRedirect("login.html");
@@ -63,7 +64,7 @@ public class CalificacionesAgregar extends HttpServlet {
             //System.out.println(ex);
         }
         //System.out.println(user.toString());
-        response.sendRedirect("CalificacionesCRUD");
+        response.sendRedirect("CalificacionesMostrar");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
